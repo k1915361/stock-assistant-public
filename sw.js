@@ -1,0 +1,4 @@
+const CACHE='stock-app-ca3bd0d079250936';const ASSETS=["./.nojekyll", "./catalogue/catalogue.json", "./icon.svg", "./index.html", "./manifest.webmanifest", "./web/app.js", "./web/core.js", "./web/demo-plan.pdf", "./web/demo.js", "./web/import-core.js", "./web/index.html", "./web/local-platform.mjs", "./web/style.css", "./web/vendor/pdf.mjs", "./web/vendor/pdf.worker.mjs", "./web/vendor/tools.mjs"];
+self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS))));
+self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key.startsWith('stock-app-')&&key!==CACHE).map(key=>caches.delete(key))))));
+self.addEventListener('fetch',event=>{if(event.request.method==='GET'&&new URL(event.request.url).origin===self.location.origin)event.respondWith(caches.match(event.request).then(cached=>cached||fetch(event.request)));});

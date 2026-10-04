@@ -1,0 +1,116 @@
+{
+  "version": "ca3bd0d079250936",
+  "private_sources_included": false,
+  "files": [
+    {
+      "path": ".nojekyll",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "catalogue/catalogue.json",
+      "bytes": 49,
+      "sha256": "19d106a05e7d354c99b02564d74c38d74d3e37f1600341e343a99f702e9d2cc3"
+    },
+    {
+      "path": "icon.svg",
+      "bytes": 263,
+      "sha256": "b306586c8076aca53d80bdb77039122abc40d0ee84203eb454078997a4f03ea4"
+    },
+    {
+      "path": "index.html",
+      "bytes": 248,
+      "sha256": "e07b4122d3e0dbf1abdd7225efc35f1fadece02c4708578dd7ec5b986d0bbfa9"
+    },
+    {
+      "path": "manifest.webmanifest",
+      "bytes": 281,
+      "sha256": "556942c085ec2d0b1dc55f4259f0578baca272b49c6f3b9c277c8ae4abe6e098"
+    },
+    {
+      "path": "sw.js",
+      "bytes": 922,
+      "sha256": "47bb271368e0649cbae22fc506dff95d8e7d14ad6a5bc9b39397596260e97818"
+    },
+    {
+      "path": "web/ZXING-LICENSE.txt",
+      "bytes": 13320,
+      "sha256": "3f62881f0566227a24b12e5a754cc79f39aaa94883038e95c94812e1f50af42f"
+    },
+    {
+      "path": "web/app.js",
+      "bytes": 24175,
+      "sha256": "2c8886c86f2cc4ae32a15e3ff51a11b0bef66c02e057afdfe888343c410177f8"
+    },
+    {
+      "path": "web/core.js",
+      "bytes": 2105,
+      "sha256": "5273e5860538ab702e422c967a9a0ba6ffbdbfd01a63aecc632a3c5839c497de"
+    },
+    {
+      "path": "web/demo-plan.pdf",
+      "bytes": 2745,
+      "sha256": "9319a4ec63432ebf221d319aa9eb3a59b941edcbb0ddd1b8f603fd13689f15a1"
+    },
+    {
+      "path": "web/demo.js",
+      "bytes": 286,
+      "sha256": "e978a4c80ee9ab44ea7fe67d1442b2e71da9654dacc534f054385b7c93988605"
+    },
+    {
+      "path": "web/import-core.js",
+      "bytes": 1650,
+      "sha256": "3c1c279217857eec5187e6b261628ef69b92717f045ecc1f257b336e8d83959d"
+    },
+    {
+      "path": "web/index.html",
+      "bytes": 2544,
+      "sha256": "13f136ea6fb49161dfd5fa589d14f7923a2583c263ffdef8ac967c99423f498e"
+    },
+    {
+      "path": "web/local-platform.mjs",
+      "bytes": 10517,
+      "sha256": "34b3ffd9684c5b9a076ae4182e28ec7d33576ec210eac5c6124d8d0e96f7025e"
+    },
+    {
+      "path": "web/style.css",
+      "bytes": 7089,
+      "sha256": "483779a432df64c72c1ff250d3978f1ce7c6b7de6c54d803e47dc5f88b906672"
+    },
+    {
+      "path": "web/vendor/FFLATE-LICENSE.txt",
+      "bytes": 1069,
+      "sha256": "0a1df3a083d0c010560aa342e87959c8c1070e6fd54545741f083f22d0c8b551"
+    },
+    {
+      "path": "web/vendor/PDFJS-LICENSE.txt",
+      "bytes": 10174,
+      "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+    },
+    {
+      "path": "web/vendor/ZXING-BROWSER-LICENSE.txt",
+      "bytes": 1069,
+      "sha256": "4c26c3077daa7ce4d56ad91f279fafc395bf33c3a0f1ba9ab8cf511bad148ea5"
+    },
+    {
+      "path": "web/vendor/ZXING-JS-LICENSE.txt",
+      "bytes": 13321,
+      "sha256": "849b3ff4527ff587eecc78736b5685bbba7a44b071f3b944da914e832292f6c0"
+    },
+    {
+      "path": "web/vendor/pdf.mjs",
+      "bytes": 817035,
+      "sha256": "f36805aa525535f968b9df66c9925bb1410f71b76f16822a783dd2b2c54c14ee"
+    },
+    {
+      "path": "web/vendor/pdf.worker.mjs",
+      "bytes": 2161149,
+      "sha256": "535304b72e8a4354480292070ffc0574be1106f571a6c3949768bd46f3923af6"
+    },
+    {
+      "path": "web/vendor/tools.mjs",
+      "bytes": 455171,
+      "sha256": "da4183396ffe50e648028963a9f516516f713175ccf0212996efa30bb7a72699"
+    }
+  ]
+}
