@@ -1,0 +1,46 @@
+'use strict';
+window.RetailerUI=(()=>{
+  const pending=new Set();
+  const storeName=()=>state.settings.dunelmStore||'Kingston';
+  const storeId=()=>RetailerCore.storeId(state.settings);
+  function currentLink(){return RetailerCore.links(state.events).find(e=>StockCore.canonical(e.barcode)===StockCore.canonical(currentProduct?.barcode));}
+  function cached(){return (state.retailerCache||[]).find(e=>RetailerCore.key(e.barcode,e.store)===RetailerCore.key(currentProduct?.barcode,storeName())&&String(e.storeId||'')===storeId());}
+  function render(){
+    const node=$('retailer-summary');if(!node)return;const entry=cached(),link=currentLink();
+    if(!entry){node.innerHTML=link?'<button id="retailer-open">Official price / stock · linked page</button>':'';}
+    else{const price=typeof entry.price==='number'?new Intl.NumberFormat('en-GB',{style:'currency',currency:entry.currency||'GBP'}).format(entry.price):'Price unavailable';node.innerHTML=`${escapeHTML(price)} · ${escapeHTML(entry.officialStoreName||storeName())}: ${Number.isInteger(entry.stockCount)?entry.stockCount+' reported':'stock unknown'}${entry.availabilityCheckedAt?' · '+escapeHTML(entry.storeAvailability)+(RetailerCore.availabilityStale(entry)?' · stale':''):''}${entry.checkedAt?' · '+(RetailerCore.stale(entry)?'price stale · ':'')+escapeHTML(date(entry.checkedAt)):' · not fetched'} <button id="retailer-open">Details</button>`;}
+    if($('retailer-open'))$('retailer-open').onclick=details;
+    if(link&&RetailerCore.due(entry)){void refresh({...link,store:storeName(),storeId:storeId()});}
+  }
+  function receive(encoded){let result;try{result=typeof encoded==='string'?JSON.parse(encoded):encoded;}catch{return;}state.retailerCache=RetailerCore.merge(state.retailerCache,[result]);save();render();if($('retailer-cache-status'))$('retailer-cache-status').textContent=result.lastError||result.availabilityError||'Official result cached locally. Reopen details to see it.';}
+  async function refresh(link){const key=RetailerCore.key(link.barcode,link.store);if(pending.has(key))return;pending.add(key);
+    try{
+      if(native){native.refreshRetailer(JSON.stringify(link));return;}
+      // Neither the product page nor the public collection API grants this
+      // browser origin read access. Android performs the anonymous requests.
+      const old=(state.retailerCache||[]).find(e=>RetailerCore.key(e.barcode,e.store)===key&&e.url===link.url&&String(e.storeId||'')===String(link.storeId||''));
+      receive({...old,...link,lastAttemptAt:new Date().toISOString(),lastError:'Automatic official-site fetching is available in the Android app. This browser cannot read Dunelm across origins; import an Android workspace to view its cached results.',status:old?.status||'browser-blocked'});
+    }finally{if(!native)pending.delete(key);}
+  }
+  function details(){
+    const entry=cached(),link=currentLink();
+    openModal(`<h2>Official Dunelm lookup</h2><p>${escapeHTML(currentProduct?.name)} · ${escapeHTML(currentProduct?.barcode)}</p><p class="muted">Link the exact product and variant once. Prices and timestamps are cached locally; refresh is attempted at most once per 24 hours. Click & Collect is checked using the selected official store and exact variant. Reported collection stock may differ from the physical shelf count.</p><label for="retailer-url">Official product URL</label><input id="retailer-url" type="url" placeholder="https://www.dunelm.com/product/…" value="${escapeHTML(link?.url||'')}"><p class="muted">Use the product link with its defaultSkuId if present. Select the correct colour/capacity on Dunelm before copying the link.</p><button id="link-retailer">Save link and fetch</button><p><a href="https://www.dunelm.com/search?q=${encodeURIComponent(currentProduct?.barcode||currentProduct?.name||'')}" target="_blank" rel="noopener">Find item on official Dunelm site</a></p>${entry?`<p>${escapeHTML(entry.variant||entry.name||'')}</p><p>Price: ${typeof entry.price==='number'?escapeHTML(entry.currency)+' '+entry.price:'unavailable'}${typeof entry.wasPrice==='number'?' · was '+entry.wasPrice:''}</p><p>${escapeHTML(entry.officialStoreName||storeName())} reported collection stock count: ${Number.isInteger(entry.stockCount)?entry.stockCount:'not exposed'}${entry.storeId?' · store '+escapeHTML(entry.storeId):''}</p><p>${escapeHTML(entry.storeAvailability||'Store availability unavailable')}</p><p>${entry.availabilityCheckedAt?'Collection checked '+escapeHTML(date(entry.availabilityCheckedAt))+(RetailerCore.availabilityStale(entry)?' · stale':''):'No successful store collection check yet'}</p><p>${escapeHTML(entry.globalAvailability||'Online availability unavailable')}</p><p>${entry.checkedAt?'Last successful check '+escapeHTML(date(entry.checkedAt)):'No successful check yet'}${RetailerCore.stale(entry)?' · stale':''}</p>`:''}<p id="retailer-cache-status" role="status">${escapeHTML(entry?.lastError||entry?.availabilityError||'')}</p><p class="muted">Store label: ${escapeHTML(storeName())} · official ID: ${escapeHTML(storeId()||'not selected')}. Change it in Settings → Dunelm store and daily cache. Android runs a daily background job when the system permits; timing can be deferred.</p>`);
+    $('link-retailer').onclick=()=>{
+      const url=RetailerCore.officialURL($('retailer-url').value);if(!url){$('retailer-cache-status').textContent='Use an HTTPS www.dunelm.com/product/ link, with only an optional defaultSkuId parameter.';return;}
+      if(!currentProduct?.barcode){$('retailer-cache-status').textContent='Save an item barcode before linking its official page.';return;}
+      if(event({kind:'retailer-link',product:currentProduct.barcode,productName:currentProduct.name,url,store:storeName(),storeId:storeId()})){
+        const old=cached();if(old?.url!==url||old?.storeId!==storeId())state.retailerCache=(state.retailerCache||[]).filter(e=>RetailerCore.key(e.barcode,e.store)!==RetailerCore.key(currentProduct.barcode,storeName()));save();
+        $('retailer-cache-status').textContent='Link saved. Checking official page…';void refresh({barcode:currentProduct.barcode,url,store:storeName(),storeId:storeId()});
+      }
+    };
+  }
+  function settings(){
+    openModal(`<h2>Dunelm daily cache</h2><label for="dunelm-store">Store label</label><input id="dunelm-store" value="${escapeHTML(storeName())}"><label for="dunelm-store-id">Official Dunelm store ID</label><input id="dunelm-store-id" inputmode="numeric" maxlength="4" value="${escapeHTML(storeId())}"><p class="muted">Kingston is 0186. The official ID determines which store is checked; the result displays Dunelm's actual store name. Other nearby IDs: Colliers Wood 0115, Feltham 0151, Croydon 0335, Wandsworth 0189, Westfield White City 0163. Leave blank for price only outside Kingston.</p><button id="save-dunelm-store">Save store</button><p id="store-validation" role="status"></p><p class="muted">The Android app reads Dunelm's public Click & Collect service without an account. Store centre coordinates come from Dunelm; your phone GPS is never sent. Collection availability, reported count and price have separate timestamps. A failed store check retains the previous result and its original timestamp.</p><p>${RetailerCore.links(state.events).length} linked items · ${(state.retailerCache||[]).length} cached results. Link an item's official page under More → Official price / stock. Workspace backups include these links and cached results.</p>`);
+    $('save-dunelm-store').onclick=()=>{const name=$('dunelm-store').value.trim(),id=$('dunelm-store-id').value.trim();if(!name||name.length>120||(id&&!/^\d{4}$/.test(id))){$('store-validation').textContent='Enter a store label and a four-digit official ID, or leave the ID blank.';return;}state.settings.dunelmStore=name;state.settings.dunelmStoreId=id;save();$('modal').close();render();};
+  }
+  window.onRetailerResult=encoded=>{let e;try{e=JSON.parse(encoded);pending.delete(RetailerCore.key(e.barcode,e.store));}catch{}receive(encoded);};
+  window.onRetailerError=message=>{pending.clear();if($('retailer-cache-status'))$('retailer-cache-status').textContent=message;};
+  window.onRetailerResume=()=>{if(native){try{state.retailerCache=RetailerCore.merge(state.retailerCache,JSON.parse(native.retailerCache()));save();}catch{}}render();};
+  window.addEventListener('focus',()=>window.onRetailerResume());window.onRetailerResume();
+  return {render,details,settings,refresh};
+})();
