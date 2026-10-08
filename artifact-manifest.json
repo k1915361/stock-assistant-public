@@ -1,0 +1,236 @@
+{
+  "version": "c605774b3ab79b91",
+  "private_sources_included": false,
+  "files": [
+    {
+      "path": ".nojekyll",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "catalogue/catalogue.json",
+      "bytes": 49,
+      "sha256": "19d106a05e7d354c99b02564d74c38d74d3e37f1600341e343a99f702e9d2cc3"
+    },
+    {
+      "path": "catalogue/document-index.json",
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "icon.svg",
+      "bytes": 263,
+      "sha256": "b306586c8076aca53d80bdb77039122abc40d0ee84203eb454078997a4f03ea4"
+    },
+    {
+      "path": "index.html",
+      "bytes": 248,
+      "sha256": "e07b4122d3e0dbf1abdd7225efc35f1fadece02c4708578dd7ec5b986d0bbfa9"
+    },
+    {
+      "path": "manifest.webmanifest",
+      "bytes": 281,
+      "sha256": "556942c085ec2d0b1dc55f4259f0578baca272b49c6f3b9c277c8ae4abe6e098"
+    },
+    {
+      "path": "sw.js",
+      "bytes": 3298,
+      "sha256": "8bb453d6c8f5faaff871eb4fde2bbaa0ad630bd7968bc7236fc3e468fdb1d768"
+    },
+    {
+      "path": "web/NATIVE-SCANNER-LICENSES.txt",
+      "bytes": 13692,
+      "sha256": "a043178b0fd086896733c3d98ff1fa2d08bb1f072c880972eeccc6cbc3ab3e79"
+    },
+    {
+      "path": "web/ZXING-LICENSE.txt",
+      "bytes": 13320,
+      "sha256": "3f62881f0566227a24b12e5a754cc79f39aaa94883038e95c94812e1f50af42f"
+    },
+    {
+      "path": "web/app.js",
+      "bytes": 40227,
+      "sha256": "01098a162de3e452d6708a7989e092e7f13f4751bb89395bf2553abfd0b54532"
+    },
+    {
+      "path": "web/core.js",
+      "bytes": 4452,
+      "sha256": "f683c682772c17a85eec54b2af9909ecc1f12703e61f1e400a41b966b7769125"
+    },
+    {
+      "path": "web/demo-plan.pdf",
+      "bytes": 2745,
+      "sha256": "9319a4ec63432ebf221d319aa9eb3a59b941edcbb0ddd1b8f603fd13689f15a1"
+    },
+    {
+      "path": "web/demo.js",
+      "bytes": 286,
+      "sha256": "e978a4c80ee9ab44ea7fe67d1442b2e71da9654dacc534f054385b7c93988605"
+    },
+    {
+      "path": "web/image-test.js",
+      "bytes": 3688,
+      "sha256": "f369679ad538ac36a07d73e96d576a04f5bba162d7313827885567b755984ded"
+    },
+    {
+      "path": "web/import-core.js",
+      "bytes": 2741,
+      "sha256": "1eea5301f5899f2178ebccd7982cdd6e27f1b7346cd0868b72fe9223cede3315"
+    },
+    {
+      "path": "web/index.html",
+      "bytes": 3443,
+      "sha256": "e7c90bf57e8307232eacdcf5974aa608947a6faf28dd3d53606ba7e532b3f97b"
+    },
+    {
+      "path": "web/local-platform.mjs",
+      "bytes": 21019,
+      "sha256": "8dd2fee9833c101d57d53bd7bfc0aace59c2457f10f09df9c68fac05bc64cd14"
+    },
+    {
+      "path": "web/location-core.js",
+      "bytes": 4115,
+      "sha256": "a13396e480a59628498b6fbd9c9d7e32a3a98eefee29c78ee505b37b8f21e274"
+    },
+    {
+      "path": "web/location-map.js",
+      "bytes": 3318,
+      "sha256": "3cf854c77cccfd30451cd74cb98d80b87af5f070e5dee4b4adbd8f71fc34ab57"
+    },
+    {
+      "path": "web/map-core.js",
+      "bytes": 1051,
+      "sha256": "7a9470a48de35d9c2e067dc40229cfe76229dc552e27af6d6e0262408254bb66"
+    },
+    {
+      "path": "web/product-core.js",
+      "bytes": 1311,
+      "sha256": "0ae40d68e09d20f0af3bfa9f3a28bb2bc947fdbf02fdeb5f674027ca4af9dcaf"
+    },
+    {
+      "path": "web/retailer-core.js",
+      "bytes": 3925,
+      "sha256": "1b9e0287285dd6a7e9f7917a7d545fc1820c4802435c5ae0d828ed6bc226d10f"
+    },
+    {
+      "path": "web/retailer-ui.js",
+      "bytes": 9359,
+      "sha256": "1b311167afa848e145e616acbf25e08e4e9039ca34ae3f73b26501603cb2f4b2"
+    },
+    {
+      "path": "web/style.css",
+      "bytes": 9075,
+      "sha256": "152372fd394c1a9adf732f1c3471743ea7f00ded1b76211ed1799624499a5412"
+    },
+    {
+      "path": "web/test-barcode.png",
+      "bytes": 3253,
+      "sha256": "e303f9e6f8cea809425cb8c0fc175f7d146ea978e983d882af0976c19ced1239"
+    },
+    {
+      "path": "web/vendor/FFLATE-LICENSE.txt",
+      "bytes": 1069,
+      "sha256": "0a1df3a083d0c010560aa342e87959c8c1070e6fd54545741f083f22d0c8b551"
+    },
+    {
+      "path": "web/vendor/LEAFLET-LICENSE.txt",
+      "bytes": 1395,
+      "sha256": "53e8dc25862014e4324741ca18fbe3611e11d42ef69f59f86ea8c5389647d4cb"
+    },
+    {
+      "path": "web/vendor/PDFJS-LICENSE.txt",
+      "bytes": 10174,
+      "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+    },
+    {
+      "path": "web/vendor/ZXING-BROWSER-LICENSE.txt",
+      "bytes": 1069,
+      "sha256": "4c26c3077daa7ce4d56ad91f279fafc395bf33c3a0f1ba9ab8cf511bad148ea5"
+    },
+    {
+      "path": "web/vendor/ZXING-JS-LICENSE.txt",
+      "bytes": 13321,
+      "sha256": "849b3ff4527ff587eecc78736b5685bbba7a44b071f3b944da914e832292f6c0"
+    },
+    {
+      "path": "web/vendor/leaflet.css",
+      "bytes": 14806,
+      "sha256": "a7837102824184820dfa198d1ebcd109ff6d0ff9a2672a074b9a1b4d147d04c6"
+    },
+    {
+      "path": "web/vendor/leaflet.js",
+      "bytes": 147552,
+      "sha256": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a"
+    },
+    {
+      "path": "web/vendor/ocr.mjs",
+      "bytes": 18242,
+      "sha256": "129da612ccfd7c7e295c4e870be010e49099dea35fa943a9f056f5a60b871750"
+    },
+    {
+      "path": "web/vendor/ocr/ENG-LICENSE.txt",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "web/vendor/ocr/TESSERACT-CORE-LICENSE.txt",
+      "bytes": 11358,
+      "sha256": "c6596eb7be8581c18be736c846fb9173b69eccf6ef94c5135893ec56bd92ba08"
+    },
+    {
+      "path": "web/vendor/ocr/TESSERACT-LICENSE.txt",
+      "bytes": 11357,
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+    },
+    {
+      "path": "web/vendor/ocr/eng.traineddata.gz",
+      "bytes": 2952873,
+      "sha256": "45b4cb346724ac1774f1c36f42f182b887bcdb28ebe63e6fff90ac41f3fcff91"
+    },
+    {
+      "path": "web/vendor/ocr/tesseract-core-lstm.wasm.js",
+      "bytes": 3954181,
+      "sha256": "775a35df6f2ae100e02609443e6bd5cafcd07983dd6175454ca4a432a7730687"
+    },
+    {
+      "path": "web/vendor/ocr/tesseract-core-simd-lstm.wasm.js",
+      "bytes": 3954569,
+      "sha256": "9d7c43fb206dc9f48475228b46bf35f888fa9e6259da2e67d5a75c77049f2dc7"
+    },
+    {
+      "path": "web/vendor/ocr/tesseract-core-simd.wasm.js",
+      "bytes": 4751193,
+      "sha256": "3b0678c47a8dea6abb931b214171c08b742a5b9a9fcbbb1a028a08d5de6e9d4c"
+    },
+    {
+      "path": "web/vendor/ocr/tesseract-core.wasm.js",
+      "bytes": 4750805,
+      "sha256": "e66872f6a76f5ad414d73d21512245df0de3060ad4871a97c47efceaab27b955"
+    },
+    {
+      "path": "web/vendor/ocr/worker.min.js",
+      "bytes": 111162,
+      "sha256": "38645599043239c0eb6db08a6504a92dcdc292200535f3e9339cd77c4443b842"
+    },
+    {
+      "path": "web/vendor/pdf.mjs",
+      "bytes": 1032996,
+      "sha256": "842284e0d1d439e60701e3355c2128cd3016ebebf14220e27f512467682aad66"
+    },
+    {
+      "path": "web/vendor/pdf.worker.mjs",
+      "bytes": 2383409,
+      "sha256": "b4e582882f5e811f4d1b7b511f68d9a0c3209141e6f68856f01408c5cc155131"
+    },
+    {
+      "path": "web/vendor/tools.mjs",
+      "bytes": 455191,
+      "sha256": "2b5c396cc668979f33165ef425e4f88ac55c8ac0e831f22d88feaf7e3b692532"
+    },
+    {
+      "path": "web/workflow-core.js",
+      "bytes": 2120,
+      "sha256": "4fc5eff289b9b8d1bac599d27c321577adc14d49ac39eaeac066909443902562"
+    }
+  ]
+}
