@@ -1,0 +1,1 @@
+document.getElementById('try-demo').onclick=async()=>{try{const response=await fetch('demo-plan.pdf');await LocalPlatform.importFiles([new File([await response.blob()],'Synthetic demo plan.pdf')]);window.onBarcode('1234567890128');}catch(error){window.onCameraMessage(error.message);}};
