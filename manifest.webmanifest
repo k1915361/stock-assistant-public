@@ -1,0 +1,1 @@
+{"name": "Stock Assistant", "short_name": "Stock Assistant", "start_url": "./web/index.html", "scope": "./", "display": "standalone", "background_color": "#f3f5f3", "theme_color": "#15644e", "icons": [{"src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any"}]}
