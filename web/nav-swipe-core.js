@@ -1,0 +1,49 @@
+// Edge swipe for the navigation panel. A drag that starts near the left edge and moves right opens the panel; a drag left on an open panel closes it. The rules here decide the direction of a drag, where the panel sits during it, and whether it settles open or closed. No DOM, storage or clock.
+(function(root){
+  'use strict';
+  // A drag starts between these x positions, in CSS pixels from the left edge. Starts closer than EDGE_MIN belong to Android's back gesture, so they are left alone.
+  const EDGE_MIN=24,EDGE_MAX=56;
+  // A drag is read as horizontal or vertical once a finger has moved this far.
+  const LOCK_PIXELS=10;
+  // A release faster than this (pixels per millisecond) settles the panel in the direction of the fling.
+  const FLING_PIXELS_PER_MILLI=0.4;
+  // True when a touch that starts at this x can begin an edge swipe.
+  /**
+   * @param {number} x
+   * @returns {boolean}
+   */
+  function startsEdgeSwipe(x){return x>=EDGE_MIN&&x<=EDGE_MAX;}
+  // Reads the direction of a drag from its total movement. Null until the finger has moved far enough to tell.
+  /**
+   * @param {number} dx
+   * @param {number} dy
+   * @returns {'horizontal' | 'vertical' | null}
+   */
+  function lockDirection(dx,dy){
+    const ax=Math.abs(dx),ay=Math.abs(dy);
+    if(ax<LOCK_PIXELS&&ay<LOCK_PIXELS)return null;
+    return ax>ay*1.5?'horizontal':'vertical';
+  }
+  // The visible width of the panel during a drag. A closed panel starts at 0 and an open one at its full width; the drag moves it, but it never leaves the range 0 to width.
+  /**
+   * @param {{open: boolean, dx: number, width: number}} drag
+   * @returns {number}
+   */
+  function dragOffset({open,dx,width}){
+    const base=open?width:0;
+    return Math.min(width,Math.max(0,base+dx));
+  }
+  // True when a released panel should end open. A fling decides. Otherwise the panel must be more than half out.
+  /**
+   * @param {{offset: number, width: number, velocity: number}} release
+   * @returns {boolean}
+   */
+  function settlesOpen({offset,width,velocity}){
+    if(velocity>FLING_PIXELS_PER_MILLI)return true;
+    if(velocity<-FLING_PIXELS_PER_MILLI)return false;
+    return offset>width/2;
+  }
+  const api={EDGE_MIN,EDGE_MAX,LOCK_PIXELS,FLING_PIXELS_PER_MILLI,startsEdgeSwipe,lockDirection,dragOffset,settlesOpen};
+  if(typeof module==='object'&&module.exports)module.exports=api;
+  /** @type {any} */ (root).NavSwipeCore=api;
+})(typeof window==='object'?window:globalThis);
