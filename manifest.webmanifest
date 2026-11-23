@@ -1,0 +1,31 @@
+{
+  "name": "Stock Assistant",
+  "short_name": "Stock Assistant",
+  "start_url": "./web/index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f3f5f3",
+  "theme_color": "#15644e",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "History",
+      "url": "./web/index.html?route=app%3Ahistory"
+    },
+    {
+      "name": "Plans",
+      "url": "./web/index.html?route=app%3Aplans"
+    },
+    {
+      "name": "Shelf labels",
+      "url": "./web/index.html?route=app%3Ashelf-labels"
+    }
+  ]
+}
