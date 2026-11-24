@@ -130,7 +130,7 @@
     "android/assets/web/zip-export.mjs": "c1eac507a113fe087c848e460bed93c7277da0ef2f30e517efb59e3ae4b4abc3",
     "android/assets/web/zip-worker.mjs": "8dc513decbfdbe4d0dfabd74cfa919de625cb75ddd34de54a5ebcb0e9c76ca45",
     "config/public-release.json": "03bb27137968dc4ceaa18c2aa384e6e681a6e69ff5f8e1c877cee47faf079b2a",
-    "scripts/build_public.py": "654e6c55e41eac0f0e0cd91e6ee0ecf4f1d59ecbc03f498ccaf3075d95ae8fea",
+    "scripts/build_public.py": "9bf971aabc0c917f9bb7a4f8acb4cabfc276cae1591fd51524e70469f46e3d36",
     "scripts/public_apk_profile.py": "545d49880cece108b0b47511664f3c250188977257c5789676ee916f3980b02c",
     "scripts/public_catalogue.py": "94e18c8da0ec16babec3fc48e9365c113528364cc95f2a76c8f76cb97c0105ab",
     "scripts/public_service_worker.js": "f15a307203689a1907d9982d73823a19ad815b4759c479cbd72d2d65298057f3"
