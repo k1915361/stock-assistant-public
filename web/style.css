@@ -1,0 +1,210 @@
+:root{--space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-6:24px;--space-8:32px;--touch-target:48px;--bar-height:52px;--bar-pad:2px;--bar-total:calc(var(--bar-height) + var(--bar-pad) * 2);--icon-size:20px;--radius-small:8px;--radius-control:12px;--radius-card:16px;--radius-sheet:24px;--accent-hover:#1b3bb8;--warning:#854d0e;--warning-bg:#fffbeb;--warning-line:#fde68a;--danger:#b91c1c;--media-bg:#f4f4f5;--cue-bg:#fef3c7;--cue-text:#27272a;--tone-danger:var(--danger);--tone-warning:#a16207;--tone-success:#15803d;--tone-primary:var(--link);--scrim:#18181b70;--shadow-sheet:0 8px 28px #0004;--shadow-fab:0 3px 12px #0004;--radius:12px;font:15px/1.45 system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--bg);color-scheme:light dark}
+*{box-sizing:border-box}html{overscroll-behavior-x:none;overscroll-behavior-y:contain}body{margin:0}button,input,select,textarea{font:inherit;color:inherit}button:hover{background:var(--control-hover)}button:disabled{opacity:.55;cursor:default}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible,a:focus-visible,[role=button]:focus-visible{outline:2px solid var(--focus);outline-offset:3px}.primary{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}.primary:hover{background:var(--accent-hover)}.quiet{background:transparent;border-color:transparent}.danger{color:var(--danger)}a{color:var(--link);text-underline-offset:3px}
+header{position:sticky;top:0;z-index:4;display:flex;align-items:center;justify-content:space-between;gap:var(--space-1);padding:var(--bar-pad);background:var(--surface)}main{max-width:940px;margin:auto;padding:6px}.search-panel{padding:10px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}label{display:block;font-size:13px;font-weight:550;margin:0 0 4px}.search-row,.scan-row{display:flex;align-items:center;gap:8px}.scan-row{margin-top:8px}.search-row input{flex:1}input:not([type=checkbox]):not([type=radio]),select,textarea{width:100%;min-width:0;min-height:var(--touch-target);border:1px solid var(--input-border);border-radius:var(--radius);background:var(--surface);padding:8px 10px}input[type=checkbox],input[type=radio]{width:20px;height:20px;min-width:20px;min-height:20px;padding:0;margin:0;accent-color:var(--accent);flex:none}textarea{min-height:84px}.field{margin-top:10px}.muted,.source,.code,.verification,.item-note{color:var(--muted)}.muted{font-size:13px}.source,.item-note{font-size:12px;overflow-wrap:anywhere}.code{font:12px ui-monospace,monospace}.eyebrow{font-size:12px;font-weight:600}.welcome{padding:16px 4px}.welcome h1{font-size:24px}h1{font-size:24px;line-height:1.2;margin:6px 0}h2{font-size:20px;line-height:1.3;margin:0 0 8px;font-weight:650}h3{font-size:14px;margin:0 0 8px;font-weight:650}p{margin:8px 0}.actions,.example-links,.search-tools{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}.card{padding:8px;margin:5px 0;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}.card p{margin:4px 0}.answer{font-size:20px;font-weight:650;line-height:1.25}.badge{display:inline-block;padding:2px 7px;border:1px solid var(--line);border-radius:4px;font-size:11px}.warning,.empty{padding:8px;border:1px solid var(--warning-line);border-radius:var(--radius);background:var(--warning-bg);color:var(--warning)}.warning{display:flex;align-items:flex-start;gap:var(--space-2);font-size:13px;margin:6px 0}.variant{display:block;width:100%;text-align:left;margin:6px 0}.variant strong{display:block}#status{margin:6px 2px;min-height:18px;font-size:12px}.has-results .search-panel{display:none}.has-results .scan-row,.has-results .search-tools{display:none}.has-results #status{font-size:11px;margin:2px;min-height:14px}.product-card{padding:6px}.product-card h1{font-size:18px;margin:0;line-height:1.2}.product-card .code{margin:2px 0}.product-card .muted{margin:3px 0}.plan-heading{font-size:14px;font-weight:600;line-height:1.3;display:inline}.plan-location{font-size:12px;font-weight:400;line-height:1.25;margin:3px 0!important;color:var(--muted)}.zoom-toggle{float:right;font-size:12px;margin-top:-8px;padding:4px 8px}.plan-frame{clear:both;margin:4px 0;min-height:80px;background:var(--surface)}.plan-frame p{padding:8px}.plan-frame img{width:100%;height:auto;display:block;cursor:zoom-in}
+.plan-frame.plan-zoomable{position:relative;overflow:hidden;touch-action:pan-y}
+.plan-frame.plan-zoomable img{will-change:transform}
+.plan-frame.plan-zoomable[data-zoomed="true"]{touch-action:none}
+.plan-zoom-reset{position:absolute;top:var(--space-1);right:var(--space-1);min-height:var(--touch-target);padding:4px 8px;font-size:12px;background:var(--surface)}
+.plan-zoom-reset[hidden]{display:none}.placement-card .plan-frame img{max-height:calc(100svh - 230px);object-fit:contain}.placement-card:has(.placement-switch) .plan-frame img{max-height:calc(100svh - 275px)}.placement-switch{display:flex;gap:4px;align-items:center;margin:4px 0}.placement-switch button{min-width:var(--touch-target)}.placement-switch select{font-size:12px;padding:5px}.verification{font-size:11px;line-height:1.3;margin:3px 0!important}.latest-location{font-size:12px;line-height:1.3}.latest-location small{color:var(--muted)}.location-photo{width:100%;max-height:300px;object-fit:contain;background:var(--media-bg);border-radius:var(--radius)}.location-photo[role=button]{cursor:crosshair}.position-cue{display:inline-flex;align-items:center;gap:4px;color:var(--cue-text);font-size:12px;background:var(--cue-bg);padding:2px 5px;border-radius:4px}.position-cue strong{font-size:21px;line-height:1.1}.plan-preview{position:relative;width:100%;margin:auto;overflow:hidden;cursor:zoom-in;background:white}.plan-preview svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}.plan-frame .plan-preview img,.placement-card .plan-frame .plan-preview img{position:absolute;max-width:none;max-height:none;height:auto;display:block;object-fit:fill;margin:0}.plan-preview.original-preview{max-width:none!important;cursor:default}
+details{font-size:13px;margin:4px 0}summary{cursor:pointer;min-height:36px;display:list-item;padding:7px 2px;color:var(--muted)}.plan-details{margin-bottom:0}.event{padding:8px 0}.event p{margin:3px 0}dialog{width:min(96vw,620px);max-height:90svh;border:1px solid var(--line);border-radius:10px;padding:14px;overflow:auto;background:var(--surface);box-shadow:0 8px 32px #0002}dialog::backdrop{background:#18181b70}#close-modal{float:right;position:sticky;top:0;z-index:1;margin:-4px -4px 6px 8px;background:var(--surface);font-size:13px}#modal-content>h2{padding-top:4px;display:flow-root;overflow-wrap:anywhere}.full-plan{width:100%}.history-controls{display:flex;gap:8px;align-items:center;margin-top:12px}.history-note{position:relative;padding:var(--space-3) 0 0}.history-note::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:var(--line)}.toggle,.check-row,.recovery-choice{display:flex;align-items:center;gap:8px;min-height:var(--touch-target)}.check-row{margin:0 0 6px}.recovery-choice input[type=checkbox]{width:20px;min-width:20px;height:20px;min-height:20px}.location-photo.recovery-photo{max-height:140px;width:auto;max-width:100%}.sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;clip:rect(0,0,0,0);overflow:hidden}
+.settings-group>p{font-size:13px;color:var(--muted)}.settings-group label:not(:first-child){margin-top:6px}.settings-group .actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.settings-group .actions button{text-align:left}.settings-group>summary{font-weight:600;color:var(--ink)}.shelf-photo-source{margin:8px 0}.shelf-photo-source img{max-height:160px}.shelf-row{padding:10px;margin:8px 0}.shelf-row label{margin-top:6px}.shelf-row .check-row{margin-top:0}.shelf-row .muted{font-size:12px}.shelf-row>details{margin-top:6px}.shelf-intro{font-size:13px;color:var(--muted)}
+#settings-search-results:not(:empty){display:grid;gap:4px;margin:6px 0}.setting-search-hit{min-height:var(--touch-target);text-align:left}.setting-search-hit small{color:var(--muted);font-size:11px}.settings-group[hidden]{display:none}
+#browser-camera{position:fixed;inset:0;z-index:20;background:#18181b;color:white;padding:12px;display:flex;flex-direction:column;gap:8px}#browser-camera p{margin:0}#camera-note{font-size:18px;font-weight:600;line-height:1.3}#browser-camera video{min-height:0;flex:1;width:100%;object-fit:contain}#browser-camera div{display:flex;gap:8px}#browser-camera button{flex:1}#gps-map{height:min(48vh,380px);min-height:240px;border:1px solid var(--line);border-radius:var(--radius);background:var(--media-bg)}.retailer-summary{font-size:13px;color:var(--muted);margin-top:3px}.retailer-link summary{display:flex;align-items:center;min-height:48px}.leaflet-container a{color:var(--link)}.leaflet-control-attribution{font-size:10px}.test-barcode{display:block;width:100%;max-width:595px;height:auto;margin:4px 0}#retailer-delivery p{margin:4px 0}
+@media(min-width:700px){.scan-row .muted{margin-left:auto}.placement-card .plan-frame img{max-height:min(70svh,700px)}}@media(max-width:360px){dialog{padding:10px}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+
+/* Selected reading stays in normal flow: crowded GPS points never overlap item text. */
+.map-item{min-width:0;margin:6px 0;padding:6px 8px;border:1px solid var(--line);border-radius:var(--radius)}.map-item h3{display:block;margin:0;font-size:15px;line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.map-item p{margin:2px 0;overflow-wrap:anywhere}#map-reading{text-overflow:ellipsis}#map-summary{overflow-wrap:anywhere}
+
+.pdf-navigation{display:flex;align-items:center;gap:4px;flex-wrap:wrap;margin:6px 0}.pdf-navigation label{font-size:12px;margin:0}.pdf-navigation #pdf-page{width:62px;padding:6px;flex:none}.pdf-navigation button{min-width:var(--touch-target);padding:7px}.pdf-navigation span{font-size:12px}.pdf-navigation #pdf-go{font-size:13px}#pdf-search{overflow-wrap:anywhere}#full-plan img.full-plan{cursor:default}
+
+@media(prefers-color-scheme:dark){:root{--accent-hover:#d0d9ff;--warning:#ffe0a8;--warning-bg:#30291b;--warning-line:#51431f;--danger:#ffb4ab;--media-bg:#202223;--cue-bg:#45391b;--cue-text:#fff3c4;--tone-warning:#fde047;--tone-success:#86efac;color-scheme:dark}}
+
+/* Strong outlines are opt-in; the standard theme keeps dividers quiet. */
+:root[data-high-contrast="true"]{--line:#68716b;--input-border:#68736a;--control-border:#68736a}
+@media(prefers-color-scheme:dark){:root[data-high-contrast="true"]{--line:#68716b;--input-border:#a0ada3;--control-border:#a0ada3}}
+
+/* Shared component scale: one spacing rhythm, clear shapes, and visible controls. */
+/* Holding a button shows its hint without selecting its text or opening the system menu. The hint overlays the menu and moves nothing. */
+button{cursor:pointer;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;min-height:var(--touch-target);border:1px solid var(--control-border);border-radius:var(--radius-control);background:var(--control-bg);padding:var(--space-2) var(--space-3);font-size:15px;font-weight:500}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible,a:focus-visible,[role=button]:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+input:not([type=checkbox]):not([type=radio]),select,textarea{min-height:var(--touch-target);border-color:var(--input-border);border-radius:var(--radius-control);padding:var(--space-2) var(--space-3)}
+input::placeholder,textarea::placeholder{color:var(--muted);opacity:1}
+.top-search{position:relative;flex:1;min-width:0;display:flex;align-items:center}
+.top-search svg{width:var(--icon-size);height:var(--icon-size);fill:currentColor;flex:none}
+.top-search .search-icon{position:absolute;left:var(--space-3);color:var(--muted);pointer-events:none;fill:none}
+.top-search #query{width:100%;height:var(--bar-height);min-height:var(--bar-height);padding:0 var(--touch-target) 0 calc(var(--space-3) + var(--icon-size) + var(--space-2));border-color:transparent;background:var(--surface-hover)}
+.top-search #query:focus{background:var(--surface)}
+.top-search #query::-webkit-search-cancel-button{display:none}
+/* Phones at 400px or less (most iPhones): the magnifier takes room the placeholder needs, so the search keeps its text width. The arrow on the right still submits. */
+@media (max-width:400px){.top-search .search-icon{display:none}.top-search #query{padding-left:var(--space-3)}}
+/* At 360px or less the top bar also holds the back arrow and the navigation button on a result screen. The gaps and side padding give up a few pixels, so the search keeps 60px of text. */
+@media (max-width:360px){header{gap:2px;padding-left:0;padding-right:0}.top-search #query{padding-left:var(--space-2)}}
+:root[data-high-contrast="true"] .top-search #query{border-color:var(--control-border)}
+.search-submit{width:var(--touch-target);min-width:var(--touch-target);height:var(--bar-height);min-height:var(--bar-height);padding:0;border:0;background:transparent;display:flex;align-items:center;justify-content:center}
+.search-submit{position:absolute;top:0;right:0}
+.workspace-context{margin:var(--space-2) var(--space-1);font-size:12px;line-height:1.3;color:var(--muted)}
+.workspace-context strong{color:var(--ink);font-weight:650}
+main{padding:var(--space-2)}
+.search-panel{padding:var(--space-3);border-radius:var(--radius-card)}
+.search-row,.scan-row{gap:var(--space-2)}
+.scan-row{margin-top:var(--space-2)}
+/* The main scan button spans the search panel and is a little taller than other buttons, so it is the easy target on a phone. */
+#scan{flex:1 1 100%;min-height:56px;padding:var(--space-3) var(--space-4);font-size:17px;font-weight:600}
+.actions,.example-links,.search-tools{gap:var(--space-2);margin-top:var(--space-3)}
+.card{padding:var(--space-3);margin:var(--space-2) 0;border-radius:var(--radius-card)}
+.badge{padding:var(--space-1) var(--space-2);border-radius:var(--radius-small)}
+.settings-group .actions{gap:var(--space-2)}
+.settings-group{padding:var(--space-4) 0;margin:var(--space-2) 0 0}
+.shortcut-sheet{margin:0}.shortcut-sheet dt{margin-top:var(--space-2)}.shortcut-sheet dd{margin:var(--space-1) 0 0 0}
+dialog{border-radius:var(--radius-sheet);padding:var(--space-4)}
+.map-item{margin:var(--space-2) 0;padding:var(--space-2) var(--space-3);border-radius:var(--radius-card)}
+.pdf-navigation{gap:var(--space-1)}
+@media(max-width:360px){dialog{padding:var(--space-3)}}
+
+/* The panel's item and page rows and the status line under them. The rows themselves are .nav-row. */
+.menu-status{margin:var(--space-1) var(--space-3) 0;font-size:12px;color:var(--muted)}.menu-status:empty{display:none}
+
+/* First result: tighter cards, a shorter reference photo and one bottom action, so the item and its place fit above the fold. */
+body.has-results .workspace-context{display:none}
+body.has-results .card{padding:var(--space-2);margin:var(--space-1) 0;border-radius:var(--radius-control)}
+body.has-results .card h2,body.has-results .card h3{font-size:16px;margin:0 0 var(--space-1)}
+body.has-results .location-photo{max-height:180px}
+/* Scan sits in the top bar beside search: the most-used action is one tap away and no bottom strip is needed. */
+.top-scan{position:relative;flex:0 0 84px;width:84px;min-width:84px;height:var(--bar-height);min-height:var(--bar-height);padding:0;border:0;border-radius:var(--radius-control);background:var(--accent);color:var(--on-accent);display:flex;align-items:center;justify-content:center}
+.top-scan:hover{background:var(--accent-hover)}
+.top-scan svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:360px){.top-scan{flex-basis:var(--touch-target);width:var(--touch-target);min-width:var(--touch-target)}.top-scan svg{width:var(--icon-size);height:var(--icon-size)}}
+.scan-countdown{position:absolute;top:-2px;right:-2px;min-width:22px;padding:0 var(--space-1);border:1px solid var(--line);border-radius:var(--radius-small);background:var(--surface);color:var(--ink);font-size:11px;line-height:18px;text-align:center}
+.scan-countdown[hidden]{display:none}
+
+/* The page-start control appears only after the worker has moved down the list. */
+#scroll-top{position:fixed;z-index:3;right:var(--space-4);bottom:calc(var(--space-4) + env(safe-area-inset-bottom,0px));display:grid;place-items:center;width:48px;min-width:48px;height:48px;min-height:48px;padding:0;border:1px solid var(--line);border-radius:50%;background:var(--surface);color:var(--ink);box-shadow:0 3px 12px #0004}
+#scroll-top svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+#scroll-top[hidden]{display:none}
+body.has-scroll-top main{padding-bottom:calc(var(--space-8) + 48px)}
+/* Optional floating scan button: a large bottom-right target, off unless the scan options turn it on. It is hidden on pages, Settings and the navigation panel, and the page-top button moves above it. */
+.scan-fab{position:fixed;z-index:3;right:var(--space-4);bottom:calc(var(--space-4) + env(safe-area-inset-bottom,0px));min-height:56px;padding:var(--space-3) var(--space-6);border-radius:999px;box-shadow:var(--shadow-fab);font-size:16px;font-weight:600}
+.scan-fab[hidden]{display:none}
+body.page-open .scan-fab,body.settings-open .scan-fab,body.whats-new-open .scan-fab,body.nav-open .scan-fab{display:none}
+body.has-scan-fab #scroll-top{bottom:calc(var(--space-4) + 64px + env(safe-area-inset-bottom,0px))}
+body.has-scan-fab main{padding-bottom:calc(var(--space-8) + 64px)}
+
+/* Result rows are full-width sections bounded by hairlines above and below, like the Claude sidebar groups. */
+body.has-results main{padding:var(--space-1) 0}
+body.has-results #results .card,body.has-results #results .variant{position:relative;margin:0;padding:var(--space-2) var(--space-3);border:0;border-radius:0;background:var(--surface)}
+body.has-results #results .card::before,body.has-results #results .variant::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:var(--line)}
+body.has-results #results .variant .badge{padding:2px var(--space-2)}
+
+/* Search actions and local suggestions drop from the existing field without changing header height. */
+.search-assist{position:absolute;top:calc(100% + 4px);left:8px;right:8px;z-index:8;display:grid;gap:6px;max-height:min(62svh,480px);overflow:auto;padding:8px;border:1px solid var(--line);border-radius:var(--radius-card);background:var(--surface);box-shadow:0 8px 28px #0003}
+.search-assist[hidden]{display:none}
+.search-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px}
+.search-actions button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-width:0;min-height:48px;padding:3px 4px;border:0;border-radius:var(--radius-small);background:var(--surface-hover);font-size:12px;line-height:1.2}
+.search-actions button svg{width:var(--icon-size);height:var(--icon-size);fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+#search-suggestions{display:grid;gap:0}
+.search-suggestion,.search-recent{display:grid;width:100%;min-width:0;min-height:var(--touch-target);text-align:left;align-content:center;gap:1px;margin:0;padding:6px 4px;border:0;border-radius:0;background:transparent}
+.search-suggestion strong{font-size:13px;line-height:1.25;overflow-wrap:anywhere}
+.search-suggestion span,.search-suggestion small,.search-recent{font-size:12px;color:var(--muted);overflow-wrap:anywhere}
+.search-section-label{font-size:11px;font-weight:650;color:var(--muted);margin:6px 4px 2px}
+.search-empty{margin:4px}
+.unmatched-barcode{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:6px 0;padding:8px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);color:var(--ink)}.unmatched-barcode code{display:inline-block;max-width:100%;user-select:text;overflow-wrap:anywhere}
+.latest-location .location-note-preview{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;overflow-wrap:anywhere}
+
+
+/* Claude-inspired Settings: quiet cards, hairline section separators, and unboxed line icons. */
+:root{--space-2:7px;--space-3:10px;--space-4:14px;--space-6:20px;--space-8:28px}
+.settings-group{position:relative;padding:10px 0 4px;margin:8px 0 0}
+.settings-group::before{content:"";display:block;height:1px;margin:0 0 10px;background:var(--line)}
+.settings-group:first-of-type::before{display:none}
+.settings-heading{display:flex;align-items:center;gap:10px;margin:0 0 8px;font-size:15px;line-height:1.35}
+.settings-group-icon{display:inline-block;flex:none;width:21px;height:21px;vertical-align:middle;color:var(--muted)}
+.settings-group-icon{width:23px;height:23px;color:var(--accent)}
+.settings-group .actions{gap:2px;margin-top:6px}
+.settings-group .actions button{display:flex;align-items:center;gap:9px;min-height:48px;padding:9px 10px;text-align:left;border:0;border-radius:var(--radius-small);background:transparent}
+.settings-group .actions button:hover{background:var(--surface-hover)}
+.settings-group>button{display:flex;align-items:center;gap:9px;margin:3px 0;border:0;background:transparent;text-align:left}
+.settings-group>button:hover{background:var(--surface-hover)}
+.settings-group label:not(.check-row){margin-top:4px}
+/* Settings is a navigable screen, not a floating dialog. */
+#settings-screen[hidden]{display:none}
+#settings-screen{position:relative;background:var(--bg);color:var(--ink);padding:0 var(--space-2) env(safe-area-inset-bottom,0px)}
+/* Settings, What's new and app pages sit in the flow under the one header, so the search bar stays on them. Their own title row replaces the header; the phone's Back gesture leaves them. */
+body.settings-open>main,body.settings-open>#scroll-top,body.whats-new-open>main,body.whats-new-open>#scroll-top,body.page-open>main,body.page-open>#scroll-top{display:none}
+body.page-open>#settings-screen,body.page-open>#whats-new-screen{display:none}
+#whats-new-screen[hidden]{display:none}
+#whats-new-screen{position:relative;background:var(--bg);color:var(--ink);padding:0 var(--space-2) env(safe-area-inset-bottom,0px)}
+.settings-page-header{position:sticky;top:var(--bar-total);z-index:2;display:grid;grid-template-columns:48px 1fr 48px;align-items:center;gap:var(--space-2);margin:0 calc(var(--space-2) * -1) var(--space-2);padding:3px var(--space-2);background:var(--bg)}
+.settings-page-header h1{margin:0;text-align:center;font-size:20px}
+.settings-page-header button{width:48px;min-width:48px;min-height:48px;border:0;background:transparent;font-size:30px}
+#settings-content{max-width:720px;margin:0 auto;padding:2px 0 24px}
+/* Internal pages (app:...) share the full-screen frame of Settings. Dialogs remain only for the menu, confirms and photo viewing. */
+#app-page[hidden]{display:none}
+#app-page{position:relative;background:var(--bg);color:var(--ink);padding:0 var(--space-2) env(safe-area-inset-bottom,0px)}
+.page-address{margin:0 0 var(--space-2);padding:0 var(--space-2);font:13px/1.4 ui-monospace,SFMono-Regular,Consolas,monospace;color:var(--muted);overflow-wrap:anywhere}
+#page-content{max-width:720px;margin:0 auto;padding:var(--space-2) 0 var(--space-6)}
+button[data-icon]{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-2);min-height:var(--touch-target)}
+.ui-icon{width:var(--icon-size);height:var(--icon-size);flex:none}
+.ui-icon.tone-danger{color:var(--tone-danger)}.ui-icon.tone-warning{color:var(--tone-warning)}.ui-icon.tone-success{color:var(--tone-success)}.ui-icon.tone-primary{color:var(--tone-primary)}
+.primary>.ui-icon{color:inherit}
+button.variant[data-icon],button.search-suggestion[data-icon],button.search-recent[data-icon],button.setting-search-hit[data-icon]{display:grid;grid-template-columns:var(--icon-size) minmax(0,1fr);align-items:center;column-gap:var(--space-2);justify-content:start;text-align:left}
+button.variant[data-icon]>.ui-icon,button.search-suggestion[data-icon]>.ui-icon,button.search-recent[data-icon]>.ui-icon,button.setting-search-hit[data-icon]>.ui-icon{grid-row:span 2}
+.menu-version{margin:2px 16px 8px 52px;padding-top:6px;font-size:12px;color:var(--muted)}
+.menu-version,.settings-version{display:flex;align-items:center;gap:7px}
+.version-icon{width:17px;height:17px;flex:none;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.release-page-title{display:flex;align-items:center;gap:9px;margin:8px 2px;font-size:22px}
+.information-icon{width:22px;height:22px;flex:none;fill:none;stroke:var(--accent);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.release-note-item{padding:12px 2px 8px;border:0}
+.release-note-item h2{margin:0;font-size:16px}
+.release-note-item ul{margin:6px 0 2px;padding-left:22px}
+.release-note-item li{padding:3px 0}
+.release-note-footer{padding:10px 2px}
+/* Separator lines: a 1px rule across the top or bottom edge, drawn by the row itself. Use these instead of border lines, which add height and draw boxes. */
+.release-note-item+.release-note-item,.release-note-footer,.event+.event,.plan-comment+.plan-comment,.plan-comment-feed,.search-suggestion+.search-suggestion,.search-recent+.search-recent{position:relative}
+.release-note-item+.release-note-item::before,.release-note-footer::before,.event+.event::before,.plan-comment+.plan-comment::before,.plan-comment-feed::before,.search-suggestion+.search-suggestion::before,.search-recent+.search-recent::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:var(--line)}
+header::after,.settings-page-header::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--line)}
+#status:empty{display:none}.result-summary{margin:5px 4px 12px;color:var(--muted);font-size:12px}
+.comment-composer{display:grid;gap:var(--space-2);margin:var(--space-2) 0 var(--space-1)}.comment-composer textarea{min-height:64px}.comment-actions{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:var(--space-2)}
+.comment-list{margin:0;padding:0;list-style:none}.plan-comment{display:grid;grid-template-columns:32px minmax(0,1fr);gap:var(--space-2);align-items:start;padding:var(--space-2) 0}
+.comment-avatar{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--control-bg);font-size:13px;font-weight:650}
+.comment-meta{margin:0;font-size:12px;color:var(--muted)}.comment-kind{margin:2px 0 0;font-size:12px;color:var(--warning)}.comment-body{margin:2px 0 0;overflow-wrap:anywhere}.plan-comment-empty{margin:4px 0;font-size:12px}
+#secondary-actions>summary,.plan-details>summary{min-height:var(--touch-target);padding:5px 2px}
+#secondary-actions[open],.plan-details[open]{padding-bottom:3px}
+#secondary-actions .actions,.plan-details .actions{gap:3px;margin-top:4px}
+/* Result separators: each row starts with a 1px line, so no bordered boxes are needed. Buttons keep their borders. */
+body.has-results .product-card>:not(:first-child):not(:empty),body.has-results #placements .placement-card>:not(button):not(:first-child),body.has-results .plan-details[open]>:not(:first-child),body.has-results #secondary-actions{position:relative;margin-top:0;padding-top:var(--space-2)}
+body.has-results .product-card>:not(:first-child):not(:empty)::before,body.has-results #placements .placement-card>:not(button):not(:first-child)::before,body.has-results .plan-details[open]>:not(:first-child)::before,body.has-results #secondary-actions::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:var(--line)}
+/* The official product page is the last section of an item: a hairline row with a short title, below the plan, notes and observations. */
+#official-page{margin-top:var(--space-2)}
+body.has-results #official-page{position:relative;margin:0;padding:var(--space-3) var(--space-3) var(--space-2)}
+body.has-results #official-page::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:var(--line)}
+#official-page h2{font-size:15px;margin:0 0 var(--space-1);font-weight:650}
+#page-content .card,#page-content .variant{position:relative;margin:0;padding:var(--space-2) 0;border:0;border-radius:0;background:transparent}
+#page-content .card::before,#page-content .variant::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:var(--line)}
+
+/* Navigation toggle: a 48px touch target at the start of the top bar, where the app mark used to be. */
+.nav-toggle{flex:0 0 var(--touch-target);width:var(--touch-target);min-width:var(--touch-target);height:var(--bar-height);min-height:var(--bar-height);padding:0;border:0;background:transparent;display:flex;align-items:center;justify-content:center}
+.nav-toggle svg,.nav-panel-head svg,.nav-row svg{width:var(--icon-size);height:var(--icon-size);flex:none;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+/* Navigation panel: a left-hand panel with the destinations of the native drawer. It slides over the page and closes on Escape, the scrim, a choice or Back. */
+.nav-scrim{position:fixed;inset:0;z-index:9;background:var(--scrim);visibility:hidden;opacity:0;transition:opacity var(--motion-short) var(--ease-standard),visibility 0s linear var(--motion-short)}
+.nav-panel{position:fixed;top:0;bottom:0;left:0;z-index:10;display:flex;flex-direction:column;width:min(308px,84vw);padding:env(safe-area-inset-top,0px) var(--space-3) env(safe-area-inset-bottom,0px);overflow-y:auto;border-right:1px solid var(--line);background:var(--bg);color:var(--ink);box-shadow:var(--shadow-sheet);visibility:hidden;transform:translateX(-102%);transition:transform var(--motion-short) var(--ease-standard),visibility 0s linear var(--motion-short)}
+body.nav-open .nav-scrim{visibility:visible;opacity:1;transition:opacity var(--motion-short) var(--ease-standard)}
+body.nav-open .nav-panel{visibility:visible;transform:none;transition:transform var(--motion-short) var(--ease-standard)}
+@media (prefers-reduced-motion:reduce){.nav-scrim,.nav-panel{transition:none}}
+body.nav-dragging .nav-scrim,body.nav-dragging .nav-panel{transition:none}
+.nav-panel-head{display:flex;align-items:center;justify-content:space-between;gap:var(--space-2);min-height:var(--bar-height)}
+.nav-panel-head h2{margin:0 var(--space-2);font-size:18px;line-height:1.2}
+.nav-panel-head button{width:var(--touch-target);min-width:var(--touch-target);height:var(--touch-target);min-height:var(--touch-target);padding:0;border:0;background:transparent}
+.nav-group{position:relative;padding:var(--space-3) 0 var(--space-1)}
+.nav-group+.nav-group::before,#nav-quick:not(:empty)+.nav-group::before{content:"";position:absolute;top:0;left:var(--space-2);right:var(--space-2);height:1px;background:var(--line)}
+.nav-group h3{margin:0 0 var(--space-1);padding:0 var(--space-2);font-size:12px;font-weight:600;color:var(--accent)}
+button.nav-row{display:flex;align-items:center;justify-content:flex-start;gap:var(--space-3);width:100%;min-height:var(--touch-target);margin:0;padding:var(--space-2) var(--space-3);border:0;border-radius:var(--radius-small);background:transparent;color:var(--ink);font-size:15px;font-weight:400;text-align:left}
+button.nav-row:hover{background:var(--surface-hover)}
+.nav-row svg{color:var(--muted)}
+.nav-version{margin:auto 0 0;padding:var(--space-3) var(--space-2);font-size:12px;color:var(--muted)}
+button.nav-row[aria-current=page]{background:var(--surface-hover);font-weight:650}
+/* Plan pager under the result preview: previous and next page are 48px buttons either side of "Page N of M". */
+.plan-pager{display:flex;align-items:center;justify-content:space-between;gap:var(--space-2);margin:var(--space-1) 0 0}
+.plan-pager[hidden]{display:none}
+.plan-pager button{width:var(--touch-target);min-width:var(--touch-target);height:var(--touch-target);min-height:var(--touch-target);padding:0}
+.plan-pager #plan-item-page{width:auto;min-width:0;padding:0 var(--space-2);font-size:13px}
+.plan-page-count{flex:1;margin:0;text-align:center;font-size:13px;color:var(--muted)}
